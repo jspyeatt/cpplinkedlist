@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1498108443 source:c:\users\john\johnsappdata\dev\cplusplus\linkedlist\main.cpp
+	<iostream>
+	<stdio.h>
+
