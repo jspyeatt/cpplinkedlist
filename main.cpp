@@ -11,6 +11,7 @@ void printList(Node *head);
 Node* createNode(int value);
 Node* appendToList(Node* head, int newValue);
 Node* prependToList(Node* head, int newValue);
+Node* insertNode(Node* head, int newValue, int position);
 
 /** Creates a new node
  *
@@ -87,6 +88,21 @@ Node* prependToList(Node *head, int newValue) {
    return newNode;
 }
 
+Node* insertNode(Node *head, int newValue, int position) {
+    if (position == 0) {
+        return prependToList(head, newValue);
+    }
+    Node *temp = head;
+    for (int i = 0; i < position - 1; i++) {
+        temp = temp->next;
+    }
+    Node *newNode = createNode(newValue);
+    Node *temp2 = temp->next;
+    temp->next = newNode;
+    newNode->next = temp2;
+    return head;
+}
+
 int main()
 {
     Node* head = NULL;
@@ -98,6 +114,8 @@ int main()
     head = prependToList(head, 21);
     printList(head);
     head = prependToList(head, 17);
+    printList(head);
+    head = insertNode(head, 33, 3);
     printList(head);
 
     return 0;
